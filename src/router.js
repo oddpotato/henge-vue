@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import HomePage from './pages/HomePage.vue';
+import HomePage from './pages/Homepage.vue';
 import Druids from './pages/Druids.vue';
 import ContactUs from './pages/ContactUs.vue';
 import Messages from './pages/Messages.vue'
@@ -10,8 +10,15 @@ const router = createRouter({
     routes: [
         { path: '/', component: HomePage },
         { path: '/druids', component: Druids },
-        { path: '/contact', component: ContactUs },
+        {
+            path: '/druids/:id',
+            component: null,
+            children: [
+                { path: '/contact', component: ContactUs },
+            ]
+        },
         { path: '/messages', component: Messages },
+        { path: './:notfound(.*)', component: null }
     ]
 });
 
