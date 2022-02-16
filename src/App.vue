@@ -1,26 +1,35 @@
 <template>
-<the-header v-if="isNotHomePage"/>
-<router-view v-if="isNotHomePage"></router-view>
-<homepage v-if="!isNotHomePage"></homepage>
+<the-header v-if="isNotHomePage && !isErrorPage"/>
+<router-view v-if="isNotHomePage && !isErrorPage"></router-view>
+<homepage v-if="!isNotHomePage && !isErrorPage"></homepage>
+<error-template v-if="isNotHomePage && isErrorPage"></error-template>
+
 </template>
 
 <script>
 import Homepage from './pages/Homepage.vue'
+import ErrorTemplate from './pages/ErrorTemplate.vue'
 
 export default {
   name: 'App',
   components: {
     Homepage,
+    ErrorTemplate
   },
   computed: {
     isNotHomePage() {
       return this.$route.name !== 'homepage'
+    },
+    isErrorPage(){
+      return this.$route.name === 'errorpage'
     }
   }
 }
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
 html, body {
     height: 100%;
