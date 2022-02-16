@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<the-header v-if="isNotHomePage && !isErrorPage"/>
+<router-view v-if="isNotHomePage && !isErrorPage"></router-view>
+<homepage v-if="!isNotHomePage && !isErrorPage"></homepage>
+<error-template v-if="isNotHomePage && isErrorPage"></error-template>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Homepage from './pages/Homepage.vue'
+import ErrorTemplate from './pages/ErrorTemplate.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Homepage,
+    ErrorTemplate
+  },
+  computed: {
+    isNotHomePage() {
+      return this.$route.name !== 'homepage'
+    },
+    isErrorPage(){
+      return this.$route.name === 'errorpage'
+    }
   }
 }
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 #app {
   font-family: 'PT Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0;
 }
 </style>
