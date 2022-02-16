@@ -25,7 +25,20 @@ Creating a SPA called Henge. It's Hinge, but for druids. Right now this is just 
 # store
 
 * Druids
+- ID
+- First name
+- Last name
+- Picture
+- Beard length
+- Gods worshipped
+- Favourite robe color
+- Favourite ritual
+- Bio
+- ^^^ Putting this in a json file is probably best for data management
 * Messages
+- ID for who it is
+- Messages should contain email address
+- Text of message
 
 # API?
 
