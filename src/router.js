@@ -18,7 +18,7 @@ const router = createRouter({
             ]
         },
         { path: '/messages', component: Messages },
-        { path: './:notfound(.*)', component: null }
+        { path: '/:notfound(.*)', component: null }
     ]
 });
 

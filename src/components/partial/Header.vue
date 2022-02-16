@@ -1,8 +1,6 @@
 <template>
-<main><div>
-<h3> Boop Be Doop </h3>
-</div>
-</main>
+<h3>Hi!</h3>    
+<router-link to="/druids">Druids</router-link>
 </template>
 
 <script>
