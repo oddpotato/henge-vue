@@ -1,15 +1,16 @@
 <template>
 <the-header v-if="isNotHomePage"/>
-<router-view></router-view>
+<router-view v-if="isNotHomePage"></router-view>
+<homepage v-if="!isNotHomePage"></homepage>
 </template>
 
 <script>
-// import Homepage from './pages/Homepage.vue'
+import Homepage from './pages/Homepage.vue'
 
 export default {
   name: 'App',
   components: {
-    // Homepage,
+    Homepage,
   },
   computed: {
     isNotHomePage() {
@@ -20,12 +21,19 @@ export default {
 </script>
 
 <style>
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 #app {
   font-family: 'PT Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0;
 }
 </style>
