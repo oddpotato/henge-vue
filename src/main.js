@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router.js';
 import store from './store'
-import Header from './components/partial/Header.vue'
+import Header from './components/partial/TheHeader.vue'
 
 const app = createApp(App).use(store)
 

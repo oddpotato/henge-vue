@@ -8,7 +8,7 @@ import Messages from './pages/Messages.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/', component: HomePage },
+        { path: '/', name: 'homepage', component: HomePage },
         { path: '/druids', component: Druids },
         {
             path: '/druids/:id',

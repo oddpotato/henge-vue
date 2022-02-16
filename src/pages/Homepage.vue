@@ -1,6 +1,7 @@
 <template>
 <div id="wrapper">
-    
+    <h3> Booooop </h3>
+    <p><router-link to="/druids">Druids</router-link></p>
 </div>
 </template>
 

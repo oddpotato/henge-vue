@@ -1,15 +1,20 @@
 <template>
-<the-header><router-view></router-view></the-header>
-<homepage></homepage>
+<the-header v-if="isNotHomePage"/>
+<router-view></router-view>
 </template>
 
 <script>
-import Homepage from './pages/Homepage.vue'
+// import Homepage from './pages/Homepage.vue'
 
 export default {
   name: 'App',
   components: {
-    Homepage,
+    // Homepage,
+  },
+  computed: {
+    isNotHomePage() {
+      return this.$route.name !== 'homepage'
+    }
   }
 }
 </script>
