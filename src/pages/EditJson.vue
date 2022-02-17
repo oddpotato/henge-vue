@@ -1,17 +1,8 @@
 <template>
-
 <div>
-    <h1>I am iterating over json entries from getter/vuex</h1>
-    <ul v-for="(item, index) in listofdruids.druids" :key="index">
-    <li>
-    {{ item.id }}- {{item.firstname}} - {{item.lastname}}- {{item.gods}} - {{item.picture}} - {{item.robecolor}} - {{item.ritual}} - {{item.bio}}
-    </li>
-    </ul>
-</div>
-<!-- <div>
     <h1>I am iterating over json entries and attempting to bind them to specific properties</h1>
-    <form v-for="(item, index) in listofdruids.druids" :key="index" v-on:submit.prevent="updateJSON(item)">
-        <input type="text" label="firstname" v-model="item.firstname"/>
+    <form v-for="(item, index) in this.druids" :key="index" v-on:submit.prevent="updateDruidTest(item.id, index)">
+        Id is {{item.id}} - {{item.firstname}} - <input type="text" label="firstname" v-model="item.firstname"/>
         <input type="text" label="lastname" v-model="item.lastname"/>
         <input type="text" label="gods" v-model="item.gods"/>
         <input type="text" label="picture" v-model="item.picture"/>
@@ -19,7 +10,7 @@
         <input type="text" lable="bio" v-model="item.bio">
         <button type="submit">Submit Placeholder</button>
     </form>
-</div> -->
+</div>
 <div>
     <h1>I am attempting to send a druid to firebase</h1>
     <form @submit.prevent="submitDruidTest">
@@ -36,9 +27,17 @@
     </form>
 </div>
 
+    <div>
+        <h1>This is the raw Druid Data BB</h1>
+<button @click="viewDruids()">View Druids</button>
+<p>{{ druids }}</p>
+</div>
+
 <div>
-<button @click="viewDruids()">View Druids</button>    
-{{ druids }}
+    <h1>This is trying to access a specific item</h1>
+    <form v-for="(item, index) in this.druids" :key="index" v-on:submit.prevent="viewSpecificDruid(item.id)">
+        <button type="submit">Request Item</button>
+    </form>
 </div>
 </template>
 
@@ -48,7 +47,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default({
     data(){
-        return{
+        return {
             id: "",
             firstname: "",
             lastname: "",
@@ -58,8 +57,12 @@ export default({
             robecolor: "",
             ritual: "",
             bio: "",
-            druids: []
+            druids: [],
+            isLoading: false
     }
+    },
+    mounted() {
+        this.viewDruids();
     },
     computed:{
         ...mapGetters('druids', ['listofdruids'])
@@ -102,20 +105,56 @@ export default({
         },
         viewDruids(){
             console.log('Hello this triggered');
+            this.isLoading = true
             fetch('https://hengejsontest-default-rtdb.firebaseio.com/druids.json').then((response) => {
                 if(response.ok){
                     return response.json();
                 }
             }).then((data) => {
+                this.isLoading = false
                 console.log(data);
                 const results = []
                 for (const id in data){
-                    results.push({id: id, name: data[id].firstname});
+                    results.push({id: id, firstname: data[id].firstname, lastname: data[id].lastname, picture: data[id].picture, beardlength: data[id].beardlength, gods: data[id].gods, robecolor: data[id].robecolor, ritual: data[id].ritual, bio: data[id].bio}); 
                 }
                 this.druids = results
                 console.log("The result is " + this.druids)
             });
         },
+        viewSpecificDruid(id){
+            console.log('Hello this triggered');
+            this.isLoading = true
+            fetch(`https://hengejsontest-default-rtdb.firebaseio.com/druids/${id}.json`).then((response) => {
+                if(response.ok){
+                    return response.json();
+                }
+            }).then((data) => {
+                this.isLoading = false
+                console.log(data);
+            });
+        },
+        updateDruidTest(id, index){
+            console.log('update triggered')
+            console.log(this.firstname)
+            fetch(`https://hengejsontest-default-rtdb.firebaseio.com/druids/${id}.json`, {
+            method: 'PATCH',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body:
+                JSON.stringify({
+                    id: this.id,
+                    firstname: this.druids[index].firstname,
+                    lastname: this.druids[index].lastname,
+                    picture: this.druids[index].picture,
+                    beardlength: this.druids[index].beardlength,
+                    gods: this.druids[index].gods,
+                    robecolor: this.druids[index].robecolor,
+                    ritual: this.druids[index].ritual,
+                    bio: this.druids[index].bio
+            })
+    })
+    }
     },
 })
 </script>
