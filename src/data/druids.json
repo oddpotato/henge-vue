@@ -1,0 +1,113 @@
+{
+    "druids": [{
+            "id": 1,
+            "firstname": "Bruh",
+            "lastname": "Dude",
+            "picture": "@/assets/bruh.png",
+            "beardlength": "None",
+            "gods": "dudebro",
+            "robecolor": "None",
+            "ritual": "Hackisack and flute",
+            "bio": "Duuuuuuuuuuuuuude"
+        },
+        {
+            "id": 2,
+            "firstname": "Firstname",
+            "lastname": "Lastname",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 3,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 4,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 5,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 6,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 7,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 8,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 9,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        },
+        {
+            "id": 10,
+            "firstname": "",
+            "lastname": "",
+            "picture": "",
+            "beardlength": "",
+            "gods": "",
+            "robecolor": "",
+            "ritual": "",
+            "bio": ""
+        }
+    ]
+}
