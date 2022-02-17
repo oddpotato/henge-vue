@@ -6,6 +6,7 @@ import ContactUs from './pages/ContactUs.vue';
 import Messages from './pages/Messages.vue'
 import ErrorPage from './pages/ErrorTemplate.vue'
 import EditJson from './pages/EditJson.vue'
+import Survey from './pages/LearningSurvey.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -20,6 +21,7 @@ const router = createRouter({
             ]
         },
         { path: '/messages', component: Messages },
+        { path: '/learningsurvey', component: Survey },
         { path: '/:notfound(.*)', name: 'errorpage', component: ErrorPage },
         { path: '/editjson', name: 'editjson', component: EditJson }
     ]

@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "id": { "type": "integer" },
+        "firstname": { "type": "string" },
+        "lastname": { "type": "string" },
+        "picture": { "type": "string" },
+        "beardlength": { "type": "string" },
+        "gods": { "type": "string" },
+        "robecolor": { "type": "string" },
+        "ritual": { "type": "string" },
+        "bio": { "type": "string" }
+    }
+}

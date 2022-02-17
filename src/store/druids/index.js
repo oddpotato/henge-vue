@@ -9,6 +9,7 @@ const druidsModule = {
     state() {
         return {
             listofdruids: json,
+            firebaseListofDruids: ''
         }
     },
     mutations: druidsMutations,
