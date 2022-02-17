@@ -9,6 +9,13 @@
         <input type="text" label="robecolor" v-model="item.ritual"/>
         <input type="text" lable="bio" v-model="item.bio">
         <button type="submit">Submit Placeholder</button>
+        <button @click="deleteDruid(item.id)">Delete Druid</button>
+    </form>
+</div>
+<div>
+    <h1>I am iterating over json entries and I want to delete and reload the page</h1>
+    <form v-for="(item, index) in this.druids" :key="index" v-on:submit.prevent="deleteDruid(item.id)">
+        <button type="Submit">Delete Druid</button>
     </form>
 </div>
 <div>
@@ -153,6 +160,16 @@ export default({
                     ritual: this.druids[index].ritual,
                     bio: this.druids[index].bio
             })
+    })
+    },
+        deleteDruid(id){
+            console.log('delete triggered')
+            fetch(`https://hengejsontest-default-rtdb.firebaseio.com/druids/${id}.json`, {
+            method: 'DELETE',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: null
     })
     }
     },
