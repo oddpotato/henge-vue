@@ -2,7 +2,7 @@
 
     <li>
         <h1>{{firstname}} {{lastname}}</h1>
-        <img :src="druidpicture"/>
+        <router-link to=/druids/:id><img :src="druidpicture"/></router-link>
     <p style="white-space: pre-line;">{{bio}}</p>
     </li>
 </template>
@@ -35,14 +35,14 @@ li {
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   text-align: center;
-  /* max-width: 25rem; */
-  width: 20rem;
-  height: 20rm;
+  width: 35rem;
+  border-radius: 25px;
+  /* height: 35rem; */
 }
 
 img {
-  width: 5rem;
-  height: 5rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   object-fit: cover;
 }

@@ -49,7 +49,7 @@ ul {
   margin: 0;
   padding: 5px;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 5px;
   grid-auto-rows: minmax(100px, auto);
   break-inside: avoid-column;
 }
