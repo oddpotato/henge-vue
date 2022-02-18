@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import Homepage from './pages/Homepage.vue'
 import ErrorTemplate from './pages/ErrorTemplate.vue'
 
@@ -16,6 +17,9 @@ export default {
     Homepage,
     ErrorTemplate
   },
+  mounted() {
+        this.$store.dispatch('druids/retrieveDruids')
+    },
   computed: {
     isNotHomePage() {
       return this.$route.name !== 'homepage'

@@ -5,7 +5,9 @@ import Druids from './pages/Druids.vue';
 import ContactUs from './pages/ContactUs.vue';
 import Messages from './pages/Messages.vue'
 import ErrorPage from './pages/ErrorTemplate.vue'
-import EditJson from './pages/EditJson.vue'
+import EditDruids from './pages/DruidData.vue'
+import AddDruid from './components/partial/AddDruid.vue'
+import DeleteDruid from './components/partial/DeleteDruid.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -21,7 +23,13 @@ const router = createRouter({
         },
         { path: '/messages', component: Messages },
         { path: '/:notfound(.*)', name: 'errorpage', component: ErrorPage },
-        { path: '/editjson', name: 'editjson', component: EditJson }
+        {
+            path: '/edit',
+            name: 'edit',
+            component: EditDruids,
+        },
+        { path: '/edit/add', component: AddDruid },
+        { path: '/edit/delete', component: DeleteDruid }
     ]
 });
 

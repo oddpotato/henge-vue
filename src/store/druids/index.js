@@ -1,4 +1,4 @@
-import json from '@/data/druids.json'
+// import json from '@/data/druids.json'
 
 import druidsActions from './actions.js'
 import druidsGetters from './getters.js'
@@ -8,7 +8,8 @@ const druidsModule = {
     namespaced: true,
     state() {
         return {
-            listofdruids: json,
+            listofdruids: [],
+            isdeleting: false,
         }
     },
     mutations: druidsMutations,
