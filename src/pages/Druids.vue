@@ -5,10 +5,11 @@
 <div>
     <ul>
         <individual-druid v-for="druid in listofdruids" 
-        :key="druid.id"
+        :key= druid.id
+        :id = druid.id
         :firstname = druid.firstname
         :lastname = druid.lastname
-        :picture = druid.picture
+        :druidpicture = druid.picture
         :bio = druid.bio
         :beardlength = druid.beardlength
         :gods = druid.gods
@@ -31,6 +32,11 @@ export default {
     computed:{
         ...mapGetters('druids', ['listofdruids'])
     },
+    methods:{
+        getImgUrl: function (imagePath) {
+        return require('@/assets/' + imagePath);
+    }
+    }
 }
 </script>
 

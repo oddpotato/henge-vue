@@ -1,6 +1,10 @@
 <template>
+
     <li>
         <h1>{{firstname}} {{lastname}}</h1>
+        <!-- <img src="@/assets/Bruh.png">
+        <img src="@/assets/DILF.png"> -->
+        <img :src="druidpicture"/>
     <p style="white-space: pre-line;">{{bio}}</p>
     </li>
 </template>
@@ -10,9 +14,20 @@
 import { mapGetters } from 'vuex';
 
 export default{
-    props: ['firstname', 'lastname', 'bio'],
+    props: ['id', 'firstname', 'lastname', 'bio', 'druidpicture'],
+    data(){
+        return{
+            picture2: 'DILF.png',
+            imgUrl: ""
+        }
+    },
     computed: {
-        ...mapGetters('druids', ['listofdruids'])
+        ...mapGetters('druids', ['listofdruids']),
+    },
+    methods: {
+        getImgUrl: function (imagePath) {
+            return require('@/assets/' + imagePath);
+    }
     }
 }
 </script>

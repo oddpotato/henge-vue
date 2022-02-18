@@ -13,6 +13,6 @@ export default {
     },
     updateDruid(context, payload) {
         console.log(payload)
-        context.commit('updateDruidNew', payload)
+        context.commit('updateDruid', payload)
     }
 }
