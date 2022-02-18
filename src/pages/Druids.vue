@@ -1,8 +1,8 @@
 <template>
 <div>
 <h3> Meet Our Druids </h3>
-{{listofdruids}}
-<div>
+<!-- <div class="wrapper"> -->
+    <div>
     <ul>
         <individual-druid v-for="druid in listofdruids" 
         :key= druid.id
@@ -26,6 +26,7 @@ import { mapGetters } from 'vuex';
 import IndividualDruid from '../components/partial/Druid.vue'
 
 export default {
+    name: 'Druids',
     components: {
         IndividualDruid
     },
@@ -42,4 +43,14 @@ export default {
 
 <style scoped>
 
+ul {
+  list-style: none;
+  display: grid;
+  margin: 0;
+  padding: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  break-inside: avoid-column;
+}
 </style>
