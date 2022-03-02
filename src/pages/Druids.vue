@@ -20,11 +20,7 @@
         :firstname = druid.firstname
         :lastname = druid.lastname
         :druidpicture = druid.picture
-        :bio = druid.bio
-        :beardlength = druid.beardlength
-        :gods = druid.gods
-        :robecolor = druid.robecolor
-        :ritual = druid.ritual></individual-druid>
+        :bio = druid.bio></individual-druid>
     </ul>
 </div>
 </div>

@@ -3,7 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 // For displaying data
 import HomePage from './pages/Homepage.vue';
 import Druids from './pages/Druids.vue';
-import Druid from './components/partial/Druid.vue';
+// import Druid from './components/partial/Druid.vue';
+import DruidDetails from './components/partial/DruidDetails.vue';
 
 // For contacting druids
 import ContactUs from './pages/ContactUs.vue';
@@ -24,7 +25,8 @@ const router = createRouter({
         { path: '/druids', component: Druids },
         {
             path: '/druids/:firstname-:lastname',
-            component: Druid,
+            component: DruidDetails,
+            props: true,
             children: [
                 { path: 'contact', component: ContactUs },
             ]
