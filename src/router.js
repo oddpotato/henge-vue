@@ -23,7 +23,7 @@ const router = createRouter({
         { path: '/', name: 'homepage', component: HomePage },
         { path: '/druids', component: Druids },
         {
-            path: '/druids/:id',
+            path: '/druids/:firstname-:lastname',
             component: Druid,
             children: [
                 { path: 'contact', component: ContactUs },

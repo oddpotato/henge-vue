@@ -8,7 +8,7 @@
 import {mapGetters} from 'vuex';
 
 export default ({
-
+    props: ['firstname', 'lastname'],
     computed: {
     ...mapGetters('druids', ['listofdruids']),
     }

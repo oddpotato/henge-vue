@@ -22,7 +22,7 @@ export default{
     computed: {
         ...mapGetters('druids', ['listofdruids']),
         linkToDruid(){
-            return this.$route.path + '/' + this.firstname + this.lastname
+            return this.$route.path + '/' + this.firstname + '-' + this.lastname
         }
     },
     methods: {
