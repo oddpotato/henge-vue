@@ -1,13 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+// For displaying data
 import HomePage from './pages/Homepage.vue';
 import Druids from './pages/Druids.vue';
+import Druid from './components/partial/Druid.vue';
+
+// For contacting druids
 import ContactUs from './pages/ContactUs.vue';
-import Messages from './pages/Messages.vue'
-import ErrorPage from './pages/ErrorTemplate.vue'
-import EditDruids from './pages/DruidData.vue'
-import AddDruid from './components/partial/AddDruid.vue'
-import DeleteDruid from './components/partial/DeleteDruid.vue'
+import Messages from './pages/Messages.vue';
+
+// For error handling
+import ErrorPage from './pages/ErrorTemplate.vue';
+
+// For adding and updating druid data
+import EditDruids from './pages/EditData/DruidData.vue';
+import AddDruid from './components/partial/EditData/AddDruid.vue';
+import DeleteDruid from './components/partial/EditData/DeleteDruid.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -16,7 +24,7 @@ const router = createRouter({
         { path: '/druids', component: Druids },
         {
             path: '/druids/:id',
-            component: null,
+            component: Druid,
             children: [
                 { path: '/contact', component: ContactUs },
             ]

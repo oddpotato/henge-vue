@@ -1,4 +1,6 @@
 <template>
+<section><div><h3>FILTER DRUIDS</h3></div></section>
+<section>
 <div>
 <h3> Meet Our Druids </h3>
 <!-- <div class="wrapper"> -->
@@ -18,6 +20,7 @@
     </ul>
 </div>
 </div>
+</section>
 </template>
 
 <script>

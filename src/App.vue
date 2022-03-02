@@ -49,4 +49,15 @@ html, body {
   color: #2c3e50;
   margin-top: 0;
 }
+a:hover {
+  border: 1px solid #f391e3;
+}
+
+a:active,
+a.router-link-active {
+  text-decoration-line: underline;
+  text-decoration-color: black;
+}
+
+
 </style>
