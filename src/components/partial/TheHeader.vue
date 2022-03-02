@@ -1,7 +1,7 @@
 <template>
 <header>
-<router-link to="/druids">Druids</router-link>
 <router-link to="/">Homepage</router-link>
+<router-link to="/druids">Druids</router-link>
 <router-link v-if="isLoggedIn" to="/edit">Update Listings</router-link>
 <router-link v-if="isLoggedIn" to="/messages">Read Messages</router-link>
 <button v-if="isLoggedIn" @click="logout">Logout</button>

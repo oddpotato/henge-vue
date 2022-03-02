@@ -58,5 +58,25 @@ a.router-link-active {
   text-decoration-color: black;
 }
 
+button
+{
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  font: inherit;
+  background-color: #ffffff;
+  border: 1px solid black;
+  color: #2c3e50;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+
+button:hover,
+button:active {
+  background-color: #2c3e50;
+  border-color: #2c3e50;
+  color: white;
+}
 
 </style>
