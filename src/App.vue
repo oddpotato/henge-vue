@@ -10,6 +10,7 @@
 
 import Homepage from './pages/Homepage.vue'
 import ErrorTemplate from './pages/ErrorTemplate.vue'
+// import {mapGetters} from 'vuex'
 
 export default {
   name: 'App',
@@ -26,7 +27,8 @@ export default {
     },
     isErrorPage(){
       return this.$route.name === 'errorpage'
-    }
+    },
+    // ...mapGetters('isLoggedIn')
   }
 }
 </script>
@@ -48,9 +50,6 @@ html, body {
   text-align: center;
   color: #2c3e50;
   margin-top: 0;
-}
-a:hover {
-  border: 1px solid #f391e3;
 }
 
 a:active,

@@ -1,11 +1,19 @@
 <template>
-<section><div><h3>FILTER DRUIDS</h3></div></section>
+<!-- <div id="wrapper"> -->
+    <section>
+    <div>
+        <h3>FILTER DRUIDS</h3>
+        <button @click="notFiltered">Reset</button>
+        <button @click="isFiltered">Filter</button>
+    </div>
+
+</section>
 <section>
 <div>
 <h3> Meet Our Druids </h3>
 <!-- <div class="wrapper"> -->
     <div>
-    <ul>
+    <ul v-if="!this.filtered">
         <individual-druid v-for="druid in listofdruids" 
         :key= druid.id
         :id = druid.id
@@ -21,6 +29,7 @@
 </div>
 </div>
 </section>
+<!-- </div> -->
 </template>
 
 <script>
@@ -30,6 +39,11 @@ import IndividualDruid from '../components/partial/Druid.vue'
 
 export default {
     name: 'Druids',
+    data(){
+        return {
+            filtered: false
+        }
+    },
     components: {
         IndividualDruid
     },
@@ -37,9 +51,12 @@ export default {
         ...mapGetters('druids', ['listofdruids'])
     },
     methods:{
-        getImgUrl: function (imagePath) {
-        return require('@/assets/' + imagePath);
-    }
+        isFiltered(){
+            this.filtered = true
+        },
+        notFiltered(){
+            this.filtered = false
+        }
     }
 }
 </script>
@@ -56,4 +73,16 @@ ul {
   grid-auto-rows: minmax(100px, auto);
   break-inside: avoid-column;
 }
+
+  /* #wrapper {
+  opacity: 0.92;
+  background: url("../assets/GeneralForest.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  overflow: hidden;
+  } */
+
 </style>

@@ -26,7 +26,7 @@ const router = createRouter({
             path: '/druids/:id',
             component: Druid,
             children: [
-                { path: '/contact', component: ContactUs },
+                { path: 'contact', component: ContactUs },
             ]
         },
         { path: '/messages', component: Messages },

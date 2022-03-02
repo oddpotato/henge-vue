@@ -1,6 +1,6 @@
 <template>
 <form @submit.prevent>
-    
+    <input type="text" label="Boop" />
 
 </form>
 </template>
