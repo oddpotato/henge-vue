@@ -7,16 +7,16 @@
     <h1>Edit Druids</h1>
     <select v-model="selectedValue">
          <option disabled value="">Please select one</option>
-         <option v-for="(item, index) in listofdruids" :value="item.firstname" :key="index">{{item.firstname}}</option>
+         <option v-for="(item, index) in listofdruids" :value="item.id" :key="index">{{item.firstname}}</option>
     </select>
     <div>
         <form v-for="item in selectedDruid" :key="item.id" v-on:submit.prevent="updateDruid(item)">
-        Id is {{item.id}} - {{item.firstname}} - <input type="text" label="firstname" v-model="item.firstname"/><br>
-        <input type="text" label="lastname" v-model="item.lastname"/><br>
-        <input type="text" label="gods" v-model="item.gods"/><br>
-        <input type="text" label="picture" v-model="item.picture"/><br>
-        <input type="text" label="robecolor" v-model="item.ritual"/><br>
-        <input type="text" lable="bio" v-model="item.bio"><br>
+        First Name: <input type="text" label="firstname" v-model="item.firstname"/><br>
+        Last Name: <input type="text" label="lastname" v-model="item.lastname"/><br>
+        Gods: <input type="text" label="gods" v-model="item.gods"/><br>
+        Picture URL: <input type="text" label="picture" v-model="item.picture"/><br>
+        Ritual: <input type="text" label="robecolor" v-model="item.ritual"/><br>
+        Bio: <textarea lable="bio" v-model="item.bio"/><br>
         <button type="submit">Update Druid</button>
     </form>
     </div>
@@ -37,7 +37,7 @@ export default({
     computed:{
         ...mapGetters('druids', ['listofdruids']),
         selectedDruid() {
-            return this.listofdruids.filter(druid => druid.firstname === this.selectedValue)
+            return this.listofdruids.filter(druid => druid.id === this.selectedValue)
         }
     },
     methods: {
@@ -48,5 +48,8 @@ export default({
 
 <style scoped>
 
+h1 {
+    font-size: 40px;
+}
 
 </style>
