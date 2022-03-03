@@ -28,7 +28,7 @@ const router = createRouter({
             component: DruidDetails,
             props: true,
             children: [
-                { path: 'contact', component: ContactUs },
+                { path: 'contact', name: 'contact', component: ContactUs },
             ]
         },
         { path: '/messages', component: Messages },

@@ -6,7 +6,7 @@
     <p style="float:right">Boop</p>
     </div>
 </section>
-<button><router-link to='/contact'>Contact</router-link></button>
+<button><router-link :to="contactLink">Contact {{this.firstname}}</router-link></button>
 <router-view></router-view>
 </template>
 
@@ -33,6 +33,12 @@ export default ({
         ...mapGetters('druids', ['listofdruids']),
         // picture(){
         //     return this.druidSelected[0].picture
+        // }
+        contactLink(){
+            return this.$route.path + '/contact'
+        },
+        // routerLink(){
+        //     return router.push({ name: 'contact', params: { firstname: this.firstname, lastname: this.lastname } })
         // }
     },
     methods:{
