@@ -4,5 +4,11 @@ export default {
     },
     druidBeardLength(state) {
         return state.druidBeardLength
+    },
+    robecolors(state) {
+        return state.robecolors
+    },
+    gods(state) {
+        return state.gods
     }
 }

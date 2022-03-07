@@ -13,11 +13,28 @@
         <form v-for="item in selectedDruid" :key="item.id" v-on:submit.prevent="updateDruid(item)">
         First Name: <input type="text" label="firstname" v-model="item.firstname"/><br>
         Last Name: <input type="text" label="lastname" v-model="item.lastname"/><br>
-        Gods: <input type="text" label="gods" v-model="item.gods"/><br>
+        <!-- Gods: <input type="text" label="gods" v-model="item.gods"/><br> -->
+
         Picture URL: <input type="text" label="picture" v-model="item.picture"/><br>
         Ritual: <input type="text" label="robecolor" v-model="item.ritual"/><br>
         Beard Length: <input type="text" label="robecolor" v-model="item.beardlength"/> (inches)<br>
         Bio: <textarea lable="bio" v-model="item.bio"/><br>
+
+
+        Gods: <br>
+        <input type="checkbox" id="Gaia" value="Gaia" @change="item.gods" v-model="item.gods">
+        <label for="Gaia">Gaia</label><br>
+        <input type="checkbox" id="Sobek" value="Sobek" v-model="item.gods">
+        <label for="Sobek">Sobek</label><br> 
+        <input type="checkbox" id="Thor" value="Thor" @change="item.gods" v-model="item.gods">
+        <label for="Thor">Thor</label><br>
+        <input type="checkbox" id="Loki" value="Loki" @change="item.gods" v-model="item.gods">
+        <label for="Sobek">Sobek</label><br>
+        <input type="checkbox" id="The self" value="The self" @change="item.gods" v-model="item.gods">
+        <label for="The self">The self</label><br>
+        <input type="checkbox" id="Lliira" value="Lliira" @change="item.gods" v-model="item.gods">
+        <label for="Lliira">Lliira</label><br>
+        {{item.gods}}<br>
         <button type="submit">Update Druid</button>
     </form>
     </div>
@@ -32,11 +49,11 @@ import { mapGetters, mapActions } from 'vuex'
 export default({
     data(){
         return {
-            selectedValue: ""
+            selectedValue: "",
     }
     },
     computed:{
-        ...mapGetters('druids', ['listofdruids']),
+        ...mapGetters('druids', ['listofdruids', 'robecolors']),
         selectedDruid() {
             return this.listofdruids.filter(druid => druid.id === this.selectedValue)
         }

@@ -11,6 +11,8 @@ const druidsModule = {
             listofdruids: [],
             isdeleting: false,
             druidBeardLength: [],
+            robecolor: ['black', 'white', 'orange', 'blue', 'green', 'rainbow'],
+            gods: ["Gaia", "Sobek", "Thor", "Loki", "The Self", "Lliira"]
         }
     },
     mutations: druidsMutations,
