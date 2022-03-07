@@ -2,9 +2,10 @@
 
     <li>
         <h1>{{firstname}} {{lastname}}</h1>
-        <router-link to=/druids/:id><img :src="druidpicture"/></router-link>
+        <router-link :to="linkToDruid"><img :src="druidpicture"/></router-link>
     <p style="white-space: pre-line;">{{bio}}</p>
     </li>
+    <router-view></router-view>
 </template>
 
 <script>
@@ -14,17 +15,17 @@ import { mapGetters } from 'vuex';
 export default{
     props: ['id', 'firstname', 'lastname', 'bio', 'druidpicture'],
     data(){
-        return{
-            imgUrl: ""
+        return {
+            
         }
     },
     computed: {
         ...mapGetters('druids', ['listofdruids']),
+        linkToDruid(){
+            return this.$route.path + '/' + this.firstname + '-' + this.lastname
+        }
     },
     methods: {
-        getImgUrl: function (imagePath) {
-            return require('@/assets/' + imagePath);
-    }
     }
 }
 </script>
@@ -38,6 +39,8 @@ li {
   width: 35rem;
   border-radius: 25px;
   /* height: 35rem; */
+  border: 1px solid #424242;
+  background-color: white;
 }
 
 img {
@@ -45,6 +48,7 @@ img {
   height: 10rem;
   border-radius: 50%;
   object-fit: cover;
+  opacity: 0.95;
 }
 
 h1 {
@@ -52,6 +56,13 @@ h1 {
 }
 
 p {
-    color: #807e7c
+    color: #807e7c;
 }
+
+img:hover {
+  border: 2.5px solid #807e7c;
+  object-fit: cover;
+  opacity: 1;
+}
+
 </style>
