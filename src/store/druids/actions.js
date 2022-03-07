@@ -14,5 +14,8 @@ export default {
     updateDruid(context, payload) {
         console.log(payload)
         context.commit('updateDruid', payload)
+    },
+    getBeardLength(context) {
+        context.commit('getBeardLength')
     }
 }

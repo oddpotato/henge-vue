@@ -24,22 +24,19 @@ export default ({
         }
     },
     created(){
-        console.log('Before created ' + this.druidSelected)
-        this.druidSelected = this.$store.getters['druids/listofdruids'].filter(druid => druid.firstname === this.firstname);
-        console.log('After created ' + this.druidSelected)
-        this.picture = this.druidSelected[0].picture
+        // let delaymessageone = setTimeout(console.log('Before created ' + this.druidSelected), 1500)
+        setTimeout(() => {console.log('Before created ' + this.druidSelected)}, 200);
+        // this.druidSelected = this.$store.getters['druids/listofdruids'].filter(druid => druid.firstname === this.firstname);
+        this.druidSelected = setTimeout(this.$store.getters['druids/listofdruids'].filter(druid => druid.firstname === this.firstname), 300);
+        setTimeout(() => {this.druidSelected = this.$store.getters['druids/listofdruids'].filter(druid => druid.firstname === this.firstname)}, 400);
+        setTimeout(() => {console.log('After created ' + this.druidSelected)}, 420) 
+        setTimeout(() => {this.picture = this.druidSelected[0].picture}, 480)
     },
     computed:{
         ...mapGetters('druids', ['listofdruids']),
-        // picture(){
-        //     return this.druidSelected[0].picture
-        // }
         contactLink(){
             return this.$route.path + '/contact'
         },
-        // routerLink(){
-        //     return router.push({ name: 'contact', params: { firstname: this.firstname, lastname: this.lastname } })
-        // }
     },
     methods:{
     }

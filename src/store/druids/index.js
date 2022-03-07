@@ -10,6 +10,7 @@ const druidsModule = {
         return {
             listofdruids: [],
             isdeleting: false,
+            druidBeardLength: [],
         }
     },
     mutations: druidsMutations,

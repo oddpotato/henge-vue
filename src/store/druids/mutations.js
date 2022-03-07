@@ -74,4 +74,14 @@ export default {
             })
         })
     },
+    getBeardLength(state) {
+        console.log('mutation has triggered')
+        for (let i = 0; i < state.listofdruids.length; i++) {
+            let beard = state.listofdruids[i].beardlength
+            state.druidBeardLength.push(beard)
+        }
+        let uniqueBeardValues = [...new Set(state.druidBeardLength)].sort()
+        console.log(uniqueBeardValues)
+        state.druidBeardLength = uniqueBeardValues
+    }
 }

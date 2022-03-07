@@ -16,6 +16,7 @@
         Gods: <input type="text" label="gods" v-model="item.gods"/><br>
         Picture URL: <input type="text" label="picture" v-model="item.picture"/><br>
         Ritual: <input type="text" label="robecolor" v-model="item.ritual"/><br>
+        Beard Length: <input type="text" label="robecolor" v-model="item.beardlength"/> (inches)<br>
         Bio: <textarea lable="bio" v-model="item.bio"/><br>
         <button type="submit">Update Druid</button>
     </form>

@@ -1,17 +1,16 @@
 <template>
-<!-- <div id="wrapper"> -->
     <section>
     <div>
         <h3>FILTER DRUIDS</h3>
         <button @click="notFiltered">Reset</button>
         <button @click="isFiltered">Filter</button>
+        <button @click="getBeardLength">Beard Length</button>
+        {{ druidBeardLength }}
     </div>
-
 </section>
 <section>
 <div>
 <h3> Meet Our Druids </h3>
-<!-- <div class="wrapper"> -->
     <div>
     <ul v-if="!this.filtered">
         <individual-druid v-for="druid in listofdruids" 
@@ -25,12 +24,11 @@
 </div>
 </div>
 </section>
-<!-- </div> -->
 </template>
 
 <script>
 
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import IndividualDruid from '../components/partial/Druid.vue'
 
 export default {
@@ -44,9 +42,10 @@ export default {
         IndividualDruid
     },
     computed:{
-        ...mapGetters('druids', ['listofdruids'])
+        ...mapGetters('druids', ['listofdruids', 'druidBeardLength'])
     },
     methods:{
+        ...mapActions('druids', ['getBeardLength']),
         isFiltered(){
             this.filtered = true
         },
